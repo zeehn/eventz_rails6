@@ -360,9 +360,7 @@ ul.registrations {
   }
 }
 
-textarea.form-control {
-	height:100% !important;
-}
+
 // Footer
 
 footer {
@@ -439,6 +437,7 @@ form:not([class="button_to"]) {
 		@extend .form-control;
 		margin-bottom: 0.75rem;
 		width: 100%;
+		height: 100% !important;
 	}
 
 	select.datetime {
