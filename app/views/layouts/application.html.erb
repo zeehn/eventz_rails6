@@ -10,6 +10,19 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <header>
+      <%= image_tag('logo') %>
+    </header>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+
+    <footer>
+      <p>
+        Made by Zakir H. Ruby on Rails Developer! Copyright &copy; <%= Time.now.year %>
+      </p>
+    </footer>
   </body>
 </html>
