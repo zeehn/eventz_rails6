@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_18_222401) do
+ActiveRecord::Schema.define(version: 2020_11_20_114327) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2020_11_18_222401) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "starts_at"
     t.text "description"
+    t.integer "capacity", default: 1
+    t.string "image_file_name", default: "placeholder.png"
   end
 
 end

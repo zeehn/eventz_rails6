@@ -1,7 +1,10 @@
 <section class="event-details">
+  <div class="image">
+    <%= image_tag @event.image_file_name %>
+  </div>
   <div class="details">
     <h1><%= @event.name %></h1>
-    <h2><%= format_price(@event) %></h2>
+    <h2><%= pluralize(@event.capacity, "spot") %>  &bull; <%= format_price(@event) %></h2>
     <h3>
       <%= format_datetime(@event) %> in <%= @event.location%>
     </h3>
