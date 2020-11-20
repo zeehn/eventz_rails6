@@ -479,7 +479,7 @@ form:not([class="button_to"]) {
       color: $error-color;
     }
     input, textarea, select {
-      background: $error-background-color;
+      background: $error-background-color !important;
     }
   }
 }
