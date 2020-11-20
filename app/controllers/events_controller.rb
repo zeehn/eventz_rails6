@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    @events = Event.upcoming
   end
 
   def new 
@@ -32,6 +32,13 @@ class EventsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy 
+    @event = Event.find(params[:id])
+    if @event.destroy 
+      redirect_to events_path 
+    end 
   end
 
   private
