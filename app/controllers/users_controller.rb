@@ -20,6 +20,27 @@ class UsersController < ApplicationController
       render :new 
     end
   end
+
+  def edit 
+    @user = User.find(params[:id])
+  end 
+  
+  def update 
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:notice] = 'Account updated successfully!'
+      redirect_to @user 
+    else
+      render :edit 
+    end
+  end
+
+  def destroy 
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:alert] = 'Account deleted successfully!'
+    redirect_to events_url
+  end
   
   private 
   def user_params
