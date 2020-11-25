@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_013051) do
+ActiveRecord::Schema.define(version: 2020_11_25_224349) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -25,12 +25,11 @@ ActiveRecord::Schema.define(version: 2020_11_23_013051) do
   end
 
   create_table "registrations", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
     t.string "how_heard"
     t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_013051) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "admin", default: false
   end
 
 end
