@@ -2,6 +2,6 @@
 
 <ul class="registrations">
   <% @registrations.each do |r| %>
-    <li><%= r.name %> &bull;  <%= r.how_heard.capitalize %></li>
+    <li><%= r.user.name %> &bull;  <%= r.how_heard.capitalize %></li>
   <% end %>
 </ul>

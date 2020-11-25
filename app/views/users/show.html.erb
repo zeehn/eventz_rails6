@@ -1,5 +1,6 @@
 <section class="user">
   <%= profile_image(@user) %>
+  <p><i>Member Since: <%= @user.created_at.strftime("%B %Y") %></i></p>
   <h1><%= @user.name %></h1>
   <h2><%= mail_to @user.email %></h2>
   <% if current_user?(@user) %>
@@ -8,8 +9,21 @@
     <%= link_to "Delete Account", @user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button delete' %>
   </div>
   <% end %>
+  <% if @user_registrations.present? %>
+  <h3>Registrations</h3>
+  <% @user_registrations.each do |r| %>
+    <div class="registration">
+      <div class="image">
+        <%= link_to image_tag(r.event.image_file_name), r.event %>
+      </div>
+      <div class="name">
+        <%= link_to r.event.name, r.event %>
+      </div>
+      <div class="date">
+        <%= time_ago_in_words(r.created_at) %> ago
+      </div>
+    </div>
+  <% end %>
+  <% end %>
 </section>
-<h3>Member Since</h3>
-<p>
-  <%= @user.created_at.strftime("%B %Y") %>
-</p>
+
