@@ -36,7 +36,15 @@
     <h4>Liked By</h4>
     <ul>
       <% @users.each do |user| %>
-      <li><%= link_to user.name, user %></li>
+      <li><%= link_to user.name.capitalize, user %></li>
+      <% end %>
+    </ul>
+    <% end %>
+    <% if @categories.present? %>
+    <h4>Categories</h4>
+    <ul>
+      <% @categories.each do |c| %>
+      <li><%= c.name %></li>
       <% end %>
     </ul>
     <% end %>

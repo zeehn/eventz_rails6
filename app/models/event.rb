@@ -2,6 +2,8 @@ class Event < ApplicationRecord
   has_many :registrations, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :users, through: :likes
+  has_many :categorizations, dependent: :destroy
+  has_many :categories, through: :categorizations
 
   # if we want to give an alias name to users so we can call likes instead of users we can do it by
   # has_many :likers, through: :likes, source: :user
