@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :registrations, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :events, through: :likes 
   
   has_secure_password
   validates :name, presence: true
