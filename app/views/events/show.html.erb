@@ -19,6 +19,17 @@
       </p>
     </div>
   </div>
+  <aside>
+    <% if @users.present? %>
+    <h4>Liked By</h4>
+    <ul>
+      <% @users.each do |user| %>
+      <li><%= link_to user.name, user %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </aside>
+
 </section>
 
 <% if current_user_admin? %>
