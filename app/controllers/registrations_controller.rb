@@ -1,18 +1,16 @@
 class RegistrationsController < ApplicationController 
   before_action :require_signin
+  before_action :set_event, only: [:index, :new, :create]
 
   def index
-    @event = Event.find(params[:event_id])
     @registrations = @event.registrations
   end 
   
   def new 
-    @event = Event.find(params[:event_id])
     @registration = @event.registrations.new
   end
 
   def create 
-    @event = Event.find(params[:event_id])
     @registration = @event.registrations.new(registration_params)
     @registration.user = current_user
     if @registration.save
@@ -23,7 +21,11 @@ class RegistrationsController < ApplicationController
     end
   end
 
-  private 
+  private
+  def set_event 
+    @event = Event.find_by!(slug: params[:event_id])  
+  end
+
   def registration_params
     params.require(:registration).permit(:how_heard)
   end

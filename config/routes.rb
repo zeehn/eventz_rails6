@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   root 'events#index'
 
-  get 'events', to: 'events#index'
-  get 'events/:filter', to: 'events#index', as: 'filtered_events'
+  get 'events/filter/:filter', to: 'events#index', as: 'filtered_events'
   resources :events do 
     resources :registrations
     resources :likes
